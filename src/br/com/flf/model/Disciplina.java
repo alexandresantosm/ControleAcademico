@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Disciplina {
 	
+	// Declaracao dos atributos
 	private String nomeDaDisciplina;
 	private int codigoDaDisciplina;
 	private ArrayList<Aluno> listaDeAluno;
@@ -12,7 +13,7 @@ public class Disciplina {
 	private int horarioDaDisciplina;
 	private double custoDaDisciplina;
 
-	// Declaração dos construtores
+	// Declaracao dos construtores
 	public Disciplina() {
 
 	}
@@ -33,7 +34,7 @@ public class Disciplina {
 		this.custoDaDisciplina 		  = custoDaDisciplina;	
 	}
 
-	// Declaração dos getters
+	// Declaracao dos getters
 	public String getNomeDaDisciplina() {
 		return this.nomeDaDisciplina;
 	}
@@ -62,7 +63,7 @@ public class Disciplina {
 		return this.custoDaDisciplina;
 	}
 
-	// Declaração dos setters
+	// Declaracao dos setters
 	public void setNomeDaDisciplina(String nomeDaDisciplina) {
 		this.nomeDaDisciplina = nomeDaDisciplina;
 	}
@@ -90,7 +91,8 @@ public class Disciplina {
 	public void setCustoDaDisciplina(double custoDaDisciplina) {
 		this.custoDaDisciplina = custoDaDisciplina;
 	}
-
+	
+	// Mosta as informacoes da disciplina
 	public String toString() {
 		return "Disciplina: " + this.nomeDaDisciplina + "\nCodigo: " + this.codigoDaDisciplina
 				+ "\nLista de Aluno: " + this.listaDeAluno + "\nNumero da sala: " + this.numeroDaSala 

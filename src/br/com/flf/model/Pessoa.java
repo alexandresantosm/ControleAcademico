@@ -1,15 +1,17 @@
 package br.com.flf.model;
 
+// A palavra chave abstract para impedir que ela possa ser instanciada.
+// Esse é o efeito direto de se usar o modificador abstract na declaração de uma classe:
 public abstract class Pessoa {
 	
-	// Declaração dos atributos
+	// Declaracao dos atributos
 	private String nome;
 	private String cpf;
 	private String endereco;
 	private String eMail;
 	private String telefone;
 
-	// Declaração dos Construtores
+	// Declaracao dos Construtores
 	public Pessoa() {
 
 	}
@@ -27,7 +29,7 @@ public abstract class Pessoa {
 		this.telefone   = telefone;	
 	}
 
-	// Declaração dos métodos getters
+	// Declaracao dos metodos getters
 	public String getNome() {
 		return this.nome;
 	}
@@ -48,7 +50,7 @@ public abstract class Pessoa {
 		return this.telefone;
 	}
 
-	// Declaração dos métodos setters
+	// Declaracao dos metodos setters
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -69,7 +71,7 @@ public abstract class Pessoa {
 		this.telefone = telefone;
 	}
 	
-	// // Declaração do método que irá mostrar as informações da pessoa
+	// Mostra as informacoes da pessoa
 	public String toString() {
 		return "Nome: " + this.nome + "\nCPF: " + this.cpf + "\nEndereco: " + 
 				this.endereco + "\nE-mail: " + this.eMail + "\nTelefone: " + this.telefone + "\n";

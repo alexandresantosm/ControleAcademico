@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import br.com.flf.model.Pessoa;
 
+/* Para executar essa classe e necessario descomentar as linhas 19 e 20
+ * Ir na classe Pessoa e remover o modificador abstract na declaração da classe
+ */
 public class PessoaService {
 	
 	//Atributos

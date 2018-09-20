@@ -7,7 +7,7 @@ public class Professor extends Pessoa{
 	private CategoriaDoProfessor categoriaDoProfessor;
 	private ArrayList<Disciplina> listaDisciplinaDoProfessor;
 
-	// Declaração dos construtores
+	// Declaracao dos construtores
 	public Professor() {
 
 	}
@@ -24,7 +24,7 @@ public class Professor extends Pessoa{
 		this.listaDisciplinaDoProfessor = listaDisciplinaDoProfessor;
 	}
 
-	// Declaração dos getters
+	// Declaracao dos getters
 	public CategoriaDoProfessor getCategoriaDoProfessor() {
 		return this.categoriaDoProfessor;
 	}
@@ -33,7 +33,7 @@ public class Professor extends Pessoa{
 		return this.listaDisciplinaDoProfessor;
 	}
 	
-	// Declaração dos setters
+	// Declaracao dos setters
 	public void setCategoriaDoProfessor(CategoriaDoProfessor categoriaDoProfessor) {
 		this.categoriaDoProfessor = categoriaDoProfessor;
 	}

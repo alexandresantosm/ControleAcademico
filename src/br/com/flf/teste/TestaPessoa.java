@@ -3,6 +3,9 @@ package br.com.flf.teste;
 import br.com.flf.model.Pessoa;
 import br.com.flf.service.PessoaService;
 
+/* Para executar essa classe e necessario descomentar as linhas 19 e 20
+ * Ir na classe Pessoa e remover o modificador abstract na declaração da classe
+ */
 public class TestaPessoa {
 	public static void main(String[] args) {
 		

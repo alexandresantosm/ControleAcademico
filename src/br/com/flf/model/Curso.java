@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Curso {
 	
+	// Declaracao dos atributos
 	private String nomeDoCurso;
 	private int codigoDoCurso;
 	private char turnoDoCurso;
 	private String professorCoordenadorDoCurso;
 	private ArrayList<Disciplina> listaDisciplinaDoCurso;
 
-	// Declaração dos construtores
+	// Declaracao dos construtores
 	public Curso() {
 
 	}
@@ -29,7 +30,7 @@ public class Curso {
 		this.listaDisciplinaDoCurso   			 = listaDisciplinaDoCurso;
 	}
 
-	// Declaração dos getters
+	// Declaracao dos getters
 	public String getNomeDoCurso() {
 		return this.nomeDoCurso;
 	}
@@ -50,7 +51,7 @@ public class Curso {
 		return this.listaDisciplinaDoCurso;
 	}
 	
-	// Declaração dos setters
+	// Declaracao dos setters
 	public void setNomeDoCurso(String nomeDoCurso) {
 		this.nomeDoCurso = nomeDoCurso;
 	}

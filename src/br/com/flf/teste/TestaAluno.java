@@ -9,7 +9,7 @@ import br.com.flf.service.DisciplinaService;
 public class TestaAluno {
 	
 	public static void main(String[] args) {
-		// Título do sistema
+		// Titulo do sistema
 		System.out.println("Sistema Controle Academico\n");
 		
 		// Instancia um objeto do tipo alunoservice 
@@ -26,11 +26,11 @@ public class TestaAluno {
 			System.out.println(aluno.toString());
 		}
 		
-		// Pesquisa e mostra o aluno através do telefone
+		// Pesquisa e mostra o aluno atraves do telefone
 		System.out.println("Pesquisar um aluno pelo telefone\n");
 		System.out.println(alunoService.getAluno("(85) 1456-1475").toString());
 		
-		// Pesquisa e mostra o aluno através do número de matrícula
+		// Pesquisa e mostra o aluno atraves do numero de matricula
 		System.out.println("Pesquisar um aluno pela matricula\n");
 		System.out.println(alunoService.getAluno(123).toString().toString());
 	}

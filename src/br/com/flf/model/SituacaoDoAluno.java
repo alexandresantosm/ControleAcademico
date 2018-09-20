@@ -7,13 +7,20 @@ public enum SituacaoDoAluno {
 
 	private String situacaoDoAluno;
 
-	// Declaração do construtor
+	// Declaracao do construtor
 	SituacaoDoAluno(String situacaoDoAluno) {
 		this.situacaoDoAluno = situacaoDoAluno;
 	}
 
-	// Declaração do método getter
+	// Declaracao do metodo getter
 	public String getSituacaoDoAluno() {
 		return this.situacaoDoAluno;
+	}
+	
+	// Nao tem o metodo setter
+	
+	// Mostra a situacao do aluno	
+	public String toString() {
+		return "Categoria: " + this.situacaoDoAluno + "\n";
 	}
 }

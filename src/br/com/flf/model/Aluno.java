@@ -4,13 +4,13 @@ import br.com.flf.service.DisciplinaService;
 
 public class Aluno extends Pessoa{
 	
-	// Declaração dos atributos
+	// Declaracao dos atributos
 	private int matriculaDoAluno;
 	private SituacaoDoAluno situacaoDoAluno;
 	private Curso cursoDoAluno;
 	private DisciplinaService listaDisciplinaDoAluno;
 
-	// Declaração dos Construtores
+	// Declaracao dos Construtores
 	public Aluno() {
 
 	}
@@ -38,7 +38,7 @@ public class Aluno extends Pessoa{
 		this.listaDisciplinaDoAluno = listaDisciplinaDoAluno;
 	}
 
-	// Declaração dos métodos getters
+	// Declaracao dos metodos getters
 	public int getMatriculaDoAluno() {
 		return this.matriculaDoAluno;
 	}
@@ -55,7 +55,7 @@ public class Aluno extends Pessoa{
 		return this.listaDisciplinaDoAluno;
 	}
 
-	// Declaração dos métodos setters
+	// Declaracao dos metodos setters
 	public void setMatriculaDoAluno(int matriculaDoAluno) {
         this.matriculaDoAluno = matriculaDoAluno;
 	}
@@ -72,8 +72,8 @@ public class Aluno extends Pessoa{
 		this.listaDisciplinaDoAluno = listaDisciplinaDoAluno;
 	}
 	
-	// Declaração do método que irá mostrar as informações do aluno
-	// Chamo o método da superclasse 
+	// Chamada de metodo da superclasse "super.toString()" 
+	// Mostra as informacoes do aluno
 	public String toString() {
 		return  super.toString() + "Matricula: " +this.matriculaDoAluno + "\nSituacao: " + this.situacaoDoAluno +
 			   "\nCurso: " + this.cursoDoAluno + "\nDisciplinas: " + this.listaDisciplinaDoAluno + "\n";

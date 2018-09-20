@@ -14,14 +14,14 @@ public enum CategoriaDoProfessor {
 		this.categoriaDoProfessor = categoriaDoProfessor;
 	}
 
-	// Declaração do método getter
+	// Declaracao do metodo getter
 	public String getcategoriaDoProfessor() {
 		return this.categoriaDoProfessor;
 	}
 	
-	// Não tem o método setter
+	// Nao tem o metodo setter
 	
-	// Declaração do método que irá mostrar a categoria do professor	
+	// Mostra a categoria do professor	
 	public String toString() {
 		return "Categoria: " + this.categoriaDoProfessor + "\n";
 	}
