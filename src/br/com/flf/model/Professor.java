@@ -41,4 +41,9 @@ public class Professor extends Pessoa{
 	public void setListaDisciplinaDoProfessor(ArrayList<Disciplina> listaDisciplinaDoProfessor) {
 		this.listaDisciplinaDoProfessor = listaDisciplinaDoProfessor;
 	}
+	
+	// Mosta as informacoes do professor
+	public String toString() {
+		return super.toString() + "Professor: " + this.categoriaDoProfessor + "\nDisciplinas: " + this.listaDisciplinaDoProfessor;
+	}
 }

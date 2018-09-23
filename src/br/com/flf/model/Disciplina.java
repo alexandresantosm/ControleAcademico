@@ -17,6 +17,10 @@ public class Disciplina {
 	public Disciplina() {
 
 	}
+	
+	public Disciplina(String nomeDaDisciplina) {
+		this.nomeDaDisciplina   = nomeDaDisciplina;
+	}
 
 	public Disciplina(String nomeDaDisciplina, int codigoDaDisciplina) {
 		this.nomeDaDisciplina   = nomeDaDisciplina;

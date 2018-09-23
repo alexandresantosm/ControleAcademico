@@ -7,7 +7,7 @@ public class Curso {
 	// Declaracao dos atributos
 	private String nomeDoCurso;
 	private int codigoDoCurso;
-	private char turnoDoCurso;
+	private Turno turnoDoCurso;
 	private String professorCoordenadorDoCurso;
 	private ArrayList<Disciplina> listaDisciplinaDoCurso;
 
@@ -21,7 +21,7 @@ public class Curso {
 		this.codigoDoCurso = codigoDoCurso;
 	}
 
-	public Curso(String nomeDoCurso, int codigoDoCurso, char turnoDoCurso, String professorCoordenadorDoCurso, 
+	public Curso(String nomeDoCurso, int codigoDoCurso, Turno turnoDoCurso, String professorCoordenadorDoCurso, 
 		ArrayList<Disciplina> listaDisciplinaDoCurso) {
 		this.nomeDoCurso 			     = nomeDoCurso;
 		this.codigoDoCurso 			     = codigoDoCurso;
@@ -39,7 +39,7 @@ public class Curso {
 		return this.codigoDoCurso;
 	}
 
-	public char getTurnoDoCurso() {
+	public Turno getTurnoDoCurso() {
 		return this.turnoDoCurso;
 	}
 
@@ -60,7 +60,7 @@ public class Curso {
 		this.codigoDoCurso = codigoDoCurso;
 	}
 
-	public void setTurnoDoCurso(char turnoDoCurso) {
+	public void setTurnoDoCurso(Turno turnoDoCurso) {
 		this.turnoDoCurso = turnoDoCurso;
 	}
 
@@ -70,5 +70,11 @@ public class Curso {
 
 	public void setListaDisciplinaDoCurso(ArrayList<Disciplina> listaDisciplinaDoCurso) {
 		this.listaDisciplinaDoCurso = listaDisciplinaDoCurso;
+	}
+	
+	// Mosta as informacoes do curso
+	public String toString() {
+		return "Curso: " + this.nomeDoCurso + "\nCodigo: " + this.codigoDoCurso + "Turno: " + this.turnoDoCurso +
+				"\nCoordenador: "+ this.professorCoordenadorDoCurso + "\nDisciplinas:" + this.listaDisciplinaDoCurso;
 	}
 }

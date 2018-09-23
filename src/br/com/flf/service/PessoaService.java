@@ -42,4 +42,9 @@ public class PessoaService {
 		System.out.println("Pessoa nao encontrada!");
 		return null;
 	}
+	// Deleta uma pessoa pelo telefone
+		public void deletePessoa(String telefone) {
+			PessoaService pessoa = new PessoaService();
+			listaDePessoa.remove(pessoa.getPessoa(telefone));
+		}
 }

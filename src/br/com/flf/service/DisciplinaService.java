@@ -15,6 +15,11 @@ public class DisciplinaService {
 	}
 	
 	// Cria uma disciplina e adiciona a lista de disciplinas
+	public void addDisciplina(String nomeDaDisciplina) {
+		Disciplina disciplina = new Disciplina(nomeDaDisciplina);
+		listaDeDisciplina.add(disciplina);
+	}
+	
 	public void addDisciplina(String nomeDaDisciplina, int codigoDaDisciplina, ArrayList<Aluno> listaDeAluno, int numeroDaSala,
 			int cargaHorariaDaDisciplina, int horarioDaDisciplina, double custoDaDisciplina) {
 		Disciplina disciplina = new Disciplina(nomeDaDisciplina, codigoDaDisciplina, listaDeAluno, numeroDaSala,
