@@ -1,79 +1,151 @@
 package br.com.flf.model;
 
-import br.com.flf.service.DisciplinaService;
-
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * Classe Aluno
+ * 
+ * @author Alexandre
+ * @version 1.0
+ */
 public class Aluno extends Pessoa{
 	
-	// Declaracao dos atributos
-	private int matriculaDoAluno;
+	private long matriculaDoAluno;
 	private SituacaoDoAluno situacaoDoAluno;
-	private Curso cursoDoAluno;
-	private DisciplinaService listaDisciplinaDoAluno;
+	private Curso cursoDoAluno = new Curso();
+	private List<Disciplina> listaDisciplinaDoAluno = new ArrayList<Disciplina>();
 
-	// Declaracao dos Construtores
+	/**
+	 * Construtor de Aluno vazio
+	 */
 	public Aluno() {
 
 	}
-
-	public Aluno(String nome, String cpf, int matriculaDoAluno) {
-		super(nome, cpf);
+	
+	/**
+	 * Construtor de Aluno
+	 * 
+	 * @param nome nome do aluno
+	 * @param matriculaDoAluno matricula do aluno
+	 */
+	public Aluno(String nome, long matriculaDoAluno) {
+		super(nome);
 		this.matriculaDoAluno = matriculaDoAluno;
 	}
-
+	
+	/**
+     * Construtor de Aluno
+     * 
+     * @param nome nome do aluno
+     * @param matriculaDoAluno matricula do aluno
+     * @param situacaoDoAluno situacao do aluno
+     * @param cursoDoAluno curso do aluno
+     */
 	public Aluno(String nome, String cpf, 
-		int matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso cursoDoAluno, DisciplinaService listaDisciplinaDoAluno) {
-		super(nome, cpf);
+			long matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso cursoDoAluno) {
+		super(nome);
 		this.matriculaDoAluno       = matriculaDoAluno;
 		this.situacaoDoAluno        = situacaoDoAluno;
 		this.cursoDoAluno           = cursoDoAluno;
-		this.listaDisciplinaDoAluno = listaDisciplinaDoAluno;
 	}
-
+	
+	/**
+     * Construtor de Aluno
+     * 
+     * @param nome do aluno
+     * @param cpf do aluno
+     * @param endereco do aluno
+     * @param eMail do aluno
+     * @param telefone do aluno
+     * @param matriculaDoAluno matricula do aluno
+     * @param situacaoDoAluno situacao do aluno
+     * @param cursoDoAluno curso do aluno
+     */
 	public Aluno(String nome, String cpf, String endereco, String eMail, String telefone, 
-		int matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso cursoDoAluno, DisciplinaService listaDisciplinaDoAluno) {
+			long matriculaDoAluno, SituacaoDoAluno situacaoDoAluno) {
 		super(nome, cpf, endereco, eMail, telefone);
 		this.matriculaDoAluno       = matriculaDoAluno;
 		this.situacaoDoAluno        = situacaoDoAluno;
-		this.cursoDoAluno           = cursoDoAluno;
-		this.listaDisciplinaDoAluno = listaDisciplinaDoAluno;
 	}
-
-	// Declaracao dos metodos getters
-	public int getMatriculaDoAluno() {
+	
+	/**
+	 * Pega o numero de matricula do aluno
+	 * 
+	 * @return numero de matricula do aluno
+	 */
+	public long getMatriculaDoAluno() {
 		return this.matriculaDoAluno;
 	}
 
+	/**
+	 * Pega a situacao do aluno
+	 * 
+	 * @return objeto da situacao do aluno
+	 */
 	public SituacaoDoAluno getSituacaoDoAluno() {
 		return this.situacaoDoAluno;
-	}
-
+	}	
+	
+	/**
+	 * Pega o curso do aluno
+	 * 
+	 * @return objeto do curso do aluno
+	 */
 	public Curso getCursoDoAluno() {
 		return this.cursoDoAluno;
 	}
-
-	public DisciplinaService getListaDisciplinaDoAluno() {
+	
+	/**
+	 * Pega a lista de disciplina(s) de aluno
+	 * 
+	 * @return lista de disciplina(s) de aluno
+	 */
+	public List<Disciplina> getListaDisciplinaDoAluno() {
 		return this.listaDisciplinaDoAluno;
 	}
-
-	// Declaracao dos metodos setters
-	public void setMatriculaDoAluno(int matriculaDoAluno) {
+	
+	/**
+	 * Seta o numero de matricula do aluno
+	 * 
+	 * @param matriculaDoAluno do aluno
+	 */
+	public void setMatriculaDoAluno(long matriculaDoAluno) {
         this.matriculaDoAluno = matriculaDoAluno;
 	}
-
+	
+	/**
+	 * Seta a situacao do aluno
+	 * 
+	 * @param situacaoDoAluno objeto situacao do aluno
+	 */
 	public void setSituacaoDoAluno(SituacaoDoAluno situacaoDoAluno) {
 		this.situacaoDoAluno = situacaoDoAluno;
 	}
-
+	
+	/**
+	 * Seta o curso do aluno
+	 * 
+	 * @param cursoDoAluno objeto curso do aluno
+	 */
 	public void setCursoDoAluno(Curso cursoDoAluno) {
 		this.cursoDoAluno = cursoDoAluno;
 	}
-
-	public void setListaDisciplinaDoAluno(DisciplinaService listaDisciplinaDoAluno) {
-		this.listaDisciplinaDoAluno = listaDisciplinaDoAluno;
+	
+	/**
+	 * Seta a lista de disciplina(s) do aluno
+	 * 
+	 * @param listaDisciplinaDoAluno lista de disciplina(s) de aluno
+	 */
+	public void setListaDisciplinaDoAluno(Disciplina listaDisciplinaDoAluno) {
+		this.listaDisciplinaDoAluno.add(listaDisciplinaDoAluno);
 	}
 	
-	// Chamada de metodo da superclasse "super.toString()" 
-	// Mostra as informacoes do aluno
+	// Chamada de metodo da superclasse "super.toString()"
+	/**
+	 * Mostra as informacoes do aluno
+	 * 
+	 * @return uma string representando o aluno
+	 */
 	public String toString() {
 		return  super.toString() + "Matricula: " +this.matriculaDoAluno + "\nSituacao: " + this.situacaoDoAluno +
 			   "\nCurso: " + this.cursoDoAluno + "\nDisciplinas: " + this.listaDisciplinaDoAluno + "\n";

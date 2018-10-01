@@ -16,7 +16,7 @@ public class TestaDisciplina {
 		DisciplinaService disciplinaService = new DisciplinaService();
 		
 		// Adiciona disciplina
-		disciplinaService.addDisciplina("Sistemas Operacionais", 1, new ArrayList<>(), 401, 2, 18, 20);
+		disciplinaService.addDisciplina("Sistemas Operacionais", 1, 1, 1, "", 1.2);
 		
 		// Lista todos as disciplinas
 		for (Disciplina disciplina : disciplinaService.getListaDeDisciplina()) {

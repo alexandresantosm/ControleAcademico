@@ -1,33 +1,79 @@
 package br.com.flf.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.flf.model.Aluno;
-import br.com.flf.model.Curso;
+import br.com.flf.model.Disciplina;
 import br.com.flf.model.SituacaoDoAluno;
-
+/**
+ * Classe AlunoService
+ * 
+ * @author Alexandre
+ * @version 1.0
+ */
 public class AlunoService {
 	
 	// Cria uma lista de alunos
-	ArrayList<Aluno> listaDeAluno = new ArrayList<Aluno>();
+	List<Aluno> listaDeAluno = new ArrayList<Aluno>();
 	
-	public ArrayList<Aluno> getListaDeAluno() {
+	// Cria uma lista de disciplinas
+	List<Disciplina> listaDisciplinaDoAluno = new ArrayList<Disciplina>();
+	
+	/**
+	 * Pega uma lista de aluno(s)
+	 * 
+	 * @return lista de aluno(s)
+	 */
+	public List<Aluno> getListaDeAluno() {
 		return this.listaDeAluno;
 	}
 	
-	// Cria um aluno e adiciona a lista de alunos
+	/**
+	 * Pega uma lista de disciplina(s) do aluno
+	 * 
+	 * @return lista de disciplina(s) do aluno
+	 */
+	public List<Disciplina> getListaDisciplinaDoAluno() {
+		return this.listaDisciplinaDoAluno;
+	}
+	
+	/**
+	 * Cria um aluno e adiciona a lista de alunos
+	 * 
+	 * @param nome do aluno
+	 * @param cpf do aluno
+	 * @param endereco do aluno
+	 * @param eMail do aluno
+	 * @param telefone do aluno
+	 * @param matriculaDoAluno matricula do aluno
+	 * @param situacaoDoAluno situacao do aluno
+	 */
 	public void addAluno(String nome, String cpf, String endereco, String eMail, String telefone, 
-			int matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, 
-			Curso cursoDoAluno, DisciplinaService listaDisciplinaDoAluno) {
+			long matriculaDoAluno, SituacaoDoAluno situacaoDoAluno) {
 		Aluno aluno = new Aluno(nome, cpf, endereco, eMail, telefone, 
-				matriculaDoAluno, situacaoDoAluno, cursoDoAluno, listaDisciplinaDoAluno);
+				matriculaDoAluno, situacaoDoAluno);
 		listaDeAluno.add(aluno);
 	}
 	
-	// Pesquisa um aluno por telefone
+	/**
+	 * Adiciona uma disciplina a lista de disciplina(s)
+	 * 
+	 * @param matriculaDoAluno do aluno
+	 * @param disciplinaDoAluno do aluno
+	 */
+	public void addDisciplinaDoAluno(Disciplina disciplinaDoAluno) {
+		listaDisciplinaDoAluno.add(disciplinaDoAluno);
+	}
+	
+	/**
+	 * Pesquisa um aluno pelo telefone
+	 * 
+	 * @param telefone do aluno
+	 * @return objeto aluno
+	 */
 	public Aluno getAluno(String telefone) {
 		for (Aluno aluno : listaDeAluno) {
-			
 			if(aluno.getTelefone().equals(telefone)) {
 				return aluno;
 			}
@@ -36,8 +82,13 @@ public class AlunoService {
 		return null;
 	}
 	
-	// Pesquisa um aluno por matricula
-	public Aluno getAluno(int matriculaDoAluno) {
+	/**
+	 * Pesquisa um aluno pela matricula
+	 * 
+	 * @param matriculaDoAluno do aluno
+	 * @return objeto aluno
+	 */
+	public Aluno getAluno(long matriculaDoAluno) {
 		for (Aluno aluno : listaDeAluno) {
 			if(aluno.getMatriculaDoAluno() == matriculaDoAluno) {
 				return aluno;
@@ -47,15 +98,43 @@ public class AlunoService {
 		return null;
 	}
 	
-	// Deleta um aluno pelo telefone
+	/**
+	 * Deleta um aluno pelo telefone
+	 * 
+	 * @param telefone do aluno
+	 */
 	public void deleteAluno(String telefone) {
 		AlunoService aluno = new AlunoService();
 		listaDeAluno.remove(aluno.getAluno(telefone));
 	}
 	
-	// Deleta um aluno pela matricula
-	public void deleteAluno(int matriculaDoAluno) {
+	/**
+	 * Deleta um aluno pela matricula
+	 * 
+	 * @param matriculaDoAluno do aluno
+	 */
+	public void deleteAluno(long matriculaDoAluno) {
 		AlunoService aluno = new AlunoService();
 		listaDeAluno.remove(aluno.getAluno(matriculaDoAluno));
+	}
+	
+	public void listaAlunos() {
+		for (Aluno aluno : listaDeAluno) {
+			System.out.println(aluno.toString());
+		}
+	}
+	
+	public void listaDisciplinas() {
+		for (Disciplina disciplina : listaDisciplinaDoAluno) {
+			System.out.println(disciplina.toString());
+		}
+	}
+	
+	public void povoaAlunos() {
+		
+		addAluno("Alex", "28764341216", "Rua A, 1", "alex@email.com", "45933011", 111112162018L, SituacaoDoAluno.MATRICULADO);
+		addAluno("Pedro", "84256248028", "Rua dia, 48", "pedro@email.com", "35418035", 111180282018L, SituacaoDoAluno.MATRICULADO);
+		addAluno("Chico", "41598374553", "Rua Por do Sol, 99", "chico@email.com", "53638782", 111245532018L, SituacaoDoAluno.MATRICULADO);
+		addAluno("Lucas", "16051807469", "Rua Amanhecer, 10", "lucas@email.com", "43936411", 1114746922018L, SituacaoDoAluno.PENDENTE);
 	}
 }

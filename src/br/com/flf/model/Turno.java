@@ -1,5 +1,10 @@
 package br.com.flf.model;
-
+/**
+ * Enum Turno
+ * 
+ * @author Alexandre
+ * @version 1.0
+ */
 public enum Turno {
 	
 	MANHA("Manha"),
@@ -9,18 +14,34 @@ public enum Turno {
 	// Declaracao do atributo
 	private String turno;
 	
-	// Declaracao do construtor
+	/**
+	 * Construtor de Turno
+	 * 
+	 * @param turno do curso
+	 */
 	Turno(String turno) {
 		this.turno = turno;
 	}
 	
-	// Declaracao do metodo getter
+	/**
+	 * Pega o turno do curso
+	 * 
+	 * @return turno do curso
+	 */
 	public String getTurno() {
 		return this.turno;
 	}
 	
-	// Mostra o turno
+	/**
+	 * Nao tem o metodo setter 
+	 */
+	
+	/**
+	 * Mostra a informacao do turno do curso
+	 * 
+	 * @return uma string representando turno
+	 */
 	public String toString() {
-		return "Turno: " + this.turno + "\n";
+		return this.turno + "\n";
 	}
 }

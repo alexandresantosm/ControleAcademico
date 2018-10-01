@@ -1,8 +1,7 @@
 package br.com.flf.teste;
 
-import java.util.ArrayList;
-
 import br.com.flf.model.Curso;
+import br.com.flf.model.Disciplina;
 import br.com.flf.model.Turno;
 import br.com.flf.service.CursoService;
 
@@ -16,7 +15,7 @@ public class TestaCurso {
 		CursoService cursoService = new CursoService();
 		
 		// Adiciona um curso
-		cursoService.addCurso("SI", 1, Turno.NOITE, "Jordania", new ArrayList<>());
+		cursoService.addCurso("SI", 1, Turno.NOITE);
 		
 		//Lista todos os cursos
 		for (Curso curso : cursoService.getListaDeCurso()) {
