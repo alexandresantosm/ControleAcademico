@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Aluno extends Pessoa{
 	
-	private long matriculaDoAluno;
+	private String matriculaDoAluno;
 	private SituacaoDoAluno situacaoDoAluno;
 	private Curso cursoDoAluno = new Curso();
 	private List<Disciplina> listaDisciplinaDoAluno = new ArrayList<Disciplina>();
@@ -28,7 +28,7 @@ public class Aluno extends Pessoa{
 	 * @param nome nome do aluno
 	 * @param matriculaDoAluno matricula do aluno
 	 */
-	public Aluno(String nome, long matriculaDoAluno) {
+	public Aluno(String nome, String matriculaDoAluno) {
 		super(nome);
 		this.matriculaDoAluno = matriculaDoAluno;
 	}
@@ -42,7 +42,7 @@ public class Aluno extends Pessoa{
      * @param cursoDoAluno curso do aluno
      */
 	public Aluno(String nome, String cpf, 
-			long matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso cursoDoAluno) {
+			String matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso cursoDoAluno) {
 		super(nome);
 		this.matriculaDoAluno       = matriculaDoAluno;
 		this.situacaoDoAluno        = situacaoDoAluno;
@@ -62,10 +62,19 @@ public class Aluno extends Pessoa{
      * @param cursoDoAluno curso do aluno
      */
 	public Aluno(String nome, String cpf, String endereco, String eMail, String telefone, 
-			long matriculaDoAluno, SituacaoDoAluno situacaoDoAluno) {
+			String matriculaDoAluno, SituacaoDoAluno situacaoDoAluno) {
 		super(nome, cpf, endereco, eMail, telefone);
 		this.matriculaDoAluno       = matriculaDoAluno;
 		this.situacaoDoAluno        = situacaoDoAluno;
+	}
+	
+	public Aluno(String nome, String cpf, String endereco, String eMail, String telefone, 
+			String matriculaDoAluno, SituacaoDoAluno situacaoDoAluno, Curso curso, List<Disciplina> disciplina) {
+		super(nome, cpf, endereco, eMail, telefone);
+		this.matriculaDoAluno       = matriculaDoAluno;
+		this.situacaoDoAluno        = situacaoDoAluno;
+		this.cursoDoAluno = curso;
+		this.listaDisciplinaDoAluno = disciplina;
 	}
 	
 	/**
@@ -73,7 +82,7 @@ public class Aluno extends Pessoa{
 	 * 
 	 * @return numero de matricula do aluno
 	 */
-	public long getMatriculaDoAluno() {
+	public String getMatriculaDoAluno() {
 		return this.matriculaDoAluno;
 	}
 
@@ -109,7 +118,7 @@ public class Aluno extends Pessoa{
 	 * 
 	 * @param matriculaDoAluno do aluno
 	 */
-	public void setMatriculaDoAluno(long matriculaDoAluno) {
+	public void setMatriculaDoAluno(String matriculaDoAluno) {
         this.matriculaDoAluno = matriculaDoAluno;
 	}
 	

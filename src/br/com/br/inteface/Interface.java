@@ -6,10 +6,12 @@ package br.com.br.inteface;
  * @version 1.0
  */
 
-import java.io.IOException;
+import java.util.Calendar;
 
+import br.com.flf.model.Aluno;
 import br.com.flf.model.Curso;
 import br.com.flf.model.Disciplina;
+import br.com.flf.model.Professor;
 import br.com.flf.service.AlunoService;
 import br.com.flf.service.CursoService;
 import br.com.flf.service.DisciplinaService;
@@ -17,20 +19,31 @@ import br.com.flf.service.ProfessorService;
 
 public class Interface {
 	Leitor teclado;
-	AlunoService aluno;
-	CursoService curso;
-	DisciplinaService disciplina;
-	ProfessorService professor;
+	Calendar cal ;
+	AlunoService alunoService;
+	CursoService cursoService;
+	DisciplinaService disciplinaService;
+	ProfessorService professorService;
+	Aluno aluno;
+	Curso curso;
+	Disciplina disciplina;
+	Professor professor;
 	
 	public Interface() {
-		this.teclado 	= new Leitor();
-		this.aluno 		= new AlunoService();
-		this.curso 		= new CursoService();
-		this.disciplina = new DisciplinaService();
-		this.professor  = new ProfessorService();
+		this.teclado 	       = new Leitor();
+		this.cal = Calendar.getInstance();
+		this.alunoService 	   = new AlunoService();
+		this.cursoService 	   = new CursoService();
+		this.disciplinaService = new DisciplinaService();
+		this.professorService  = new ProfessorService();
+		this.aluno 	   = new Aluno();
+		this.curso 	   = new Curso();
+		this.disciplina = new Disciplina();
+		this.professor  = new Professor();
+		
 	}
 	
-	public void showMenu() throws IOException {
+	public void showMenu() {
 		int opcao = 1;
 		
 		while(opcao > 0) {
@@ -62,23 +75,30 @@ public class Interface {
 			break;
 		}
 		case 1: {
-			if(this.curso.getListaDeCurso().isEmpty()) {
+			if(this.cursoService.getListaDeCurso().isEmpty()) {
 				System.out.println("Cadastre cursos para poder cadastrar um aluno!");
 				return;
 			}
 			
-			if(this.disciplina.getListaDeDisciplina().isEmpty()) {
+			if(this.disciplinaService.getListaDeDisciplina().isEmpty()) {
 				System.out.println("Cadastre disciplinas para poder cadastrar um aluno!");
 				return;
 			}
 			
 			while (true) {
 				System.out.print("Digite o nome de um curso ja cadastrado: ");
+				cursoService.listaCursos();
 				String nomeCurso = this.teclado.leiaString();
-				Curso curso = this.curso.getCurso(nomeCurso);
-				if(curso == null) {
+				curso = this.cursoService.getCurso(nomeCurso);
+				System.out.print("Digite o nome de uma disciplina ja cadastrada: ");
+				disciplinaService.listaDisciplinas();
+				String nomeDisciplina = this.teclado.leiaString();
+				disciplina = this.disciplinaService.getDisciplina(nomeDisciplina);
+				
+				if(curso == null && disciplina == null) {
 					continue;
 				}
+				
 				System.out.println("Digite o nome do aluno: ");
 				String nomeAluno = this.teclado.leiaString();
 				System.out.println("Digite o CPF do aluno: ");
@@ -90,25 +110,20 @@ public class Interface {
 				System.out.println("Digite o telefone do aluno: ");
 				String telefoneAluno = this.teclado.leiaString();
 				System.out.println("Digite a matricula do aluno: ");
-				long matriculaAluno = this.teclado.leiaLong();
-				aluno.addAluno(nomeAluno, cpfAluno, enderecoAluno, eMailAluno, telefoneAluno, matriculaAluno, null);
+				long cpf = Long.parseLong(cpfAluno.substring(cpfAluno.length()-4) + cal.get(Calendar.YEAR));
+				String matriculaAluno = curso.getCodigoDoCurso() +""+ cpf;
+				System.out.println("Matricula: " + matriculaAluno);
+				//long matriculaAluno = this.teclado.leiaLong();
+				aluno.setListaDisciplinaDoAluno(disciplina);
+				alunoService.addAluno(nomeAluno, cpfAluno, enderecoAluno, eMailAluno, telefoneAluno, matriculaAluno, null, curso, aluno.getListaDisciplinaDoAluno());
 				System.out.println("Aluno vinculado com sucesso!");
 				break;
 			}
-			
-			while (true) {
-				System.out.print("Digite o nome de uma disciplina ja cadastrada: ");
-				String nomeDisciplina = this.teclado.leiaString();
-				Disciplina disciplina = this.disciplina.getDisciplina(nomeDisciplina);
-				if(disciplina == null) {
-					continue;
-				}
-				break;
-			}
+			break;
 		}
 		case 2: {
-			aluno.listaAlunos();
-			System.out.println(aluno.getListaDisciplinaDoAluno());
+			alunoService.listaAlunos();
+			System.out.println(alunoService.getListaDisciplinaDoAluno());
 			break;
 		}
 		case 3: {
@@ -116,7 +131,7 @@ public class Interface {
 			break;
 		}
 		case 4: {
-			curso.listaCursos();
+			cursoService.listaCursos();
 			break;
 		}
 		case 5: {
@@ -124,15 +139,15 @@ public class Interface {
 			break;
 		}
 		case 6: {
-			disciplina.listaDisciplinas();
+			disciplinaService.listaDisciplinas();
 			break;
 		}
 		case 99: {
-			curso.povoaCursos();
-			disciplina.povoaDisciplinas();
-			aluno.povoaAlunos();
-			aluno.addDisciplinaDoAluno(disciplina.getDisciplina("Calculo I"));
-			professor.povoaProfessores();
+			cursoService.povoaCursos();
+			disciplinaService.povoaDisciplinas();
+			alunoService.povoaAlunos();
+			alunoService.addDisciplinaDoAluno(disciplinaService.getDisciplina("Calculo I"));
+			professorService.povoaProfessores();
 			System.out.println("Dados inseridos com sucesso!");
 			break;
 		}

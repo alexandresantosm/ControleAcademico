@@ -127,4 +127,8 @@ public class CursoService {
 		addCurso("Economia", 1113, Turno.MANHA);
 		addCurso("Redes", 1114, Turno.NOITE);
 	}
+	
+	public void addListaDisciplinas(String disciplina) {
+		addListaDisciplinas(disciplina);
+	}
 }

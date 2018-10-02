@@ -28,7 +28,7 @@ public class DisciplinaService {
 	public void addDisciplina(String nomeDaDisciplina) {
 		Disciplina disciplina = new Disciplina();
 		if(disciplina.getNomeDaDisciplina().equals(nomeDaDisciplina)) {
-			listaDeDisciplina.add(disciplina);
+			new Aluno().setListaDisciplinaDoAluno(disciplina);
 		}	
 	}
 	
