@@ -156,7 +156,7 @@ public class Aluno extends Pessoa{
 	 * @return uma string representando o aluno
 	 */
 	public String toString() {
-		return  super.toString() + "Matricula: " +this.matriculaDoAluno + "\nSituacao: " + this.situacaoDoAluno +
-			   "\nCurso: " + this.cursoDoAluno + "\nDisciplinas: " + this.listaDisciplinaDoAluno + "\n";
+		return  super.toString() + "\nMatricula: " +this.matriculaDoAluno + "\nSituacao: " + this.situacaoDoAluno +
+			   this.cursoDoAluno + "\nDisciplinas: " + this.listaDisciplinaDoAluno + "\n";
 	}
 }

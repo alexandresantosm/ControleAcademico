@@ -150,6 +150,6 @@ public abstract class Pessoa {
 	 */
 	public String toString() {
 		return "Nome: " + this.nome + "\nCPF: " + this.cpf + "\nEndereco: " + 
-				this.endereco + "\nE-mail: " + this.eMail + "\nTelefone: " + this.telefone + "\n";
+				this.endereco + "\nE-mail: " + this.eMail + "\nTelefone: " + this.telefone;
 	}
 }

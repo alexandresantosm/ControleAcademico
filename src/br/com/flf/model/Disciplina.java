@@ -199,9 +199,9 @@ public class Disciplina {
 	 * @return uma string representando a disciplina
 	 */
 	public String toString() {
-		return "Disciplina: " + this.nomeDaDisciplina + "\nCodigo: " + this.codigoDaDisciplina
+		return "\nDisciplina: " + this.nomeDaDisciplina + "\nCodigo: " + this.codigoDaDisciplina
 				+ "\nLista de Aluno: " + this.chamadaDeAluno + "\nNumero da sala: " + this.numeroDaSala 
 				+ "\nCarga Horaria: " + this.cargaHorariaDaDisciplina + "\nHorario: " + this.horarioDaDisciplina 
-				+ "\nCusto: " + this.custoDaDisciplina + "\n";
+				+ "\nCusto: " + this.custoDaDisciplina;
 	}
 }

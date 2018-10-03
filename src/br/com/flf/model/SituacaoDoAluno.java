@@ -40,6 +40,6 @@ public enum SituacaoDoAluno {
 	 * @return uma string representando SituacaoDoAluno	
 	 */
 	public String toString() {
-		return "Situacao do aluno: " + this.situacaoDoAluno + "\n";
+		return "Situacao do aluno: " + this.situacaoDoAluno;
 	}
 }

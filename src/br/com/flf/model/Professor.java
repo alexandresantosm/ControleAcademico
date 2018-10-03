@@ -89,6 +89,6 @@ public class Professor extends Pessoa{
 	 * @return uma string representando o professor
 	 */
 	public String toString() {
-		return super.toString() + "Professor: " + this.categoriaDoProfessor + "\nDisciplinas: " + this.listaDisciplinaDoProfessor;
+		return super.toString() + "Professor: " + this.categoriaDoProfessor + "\nDisciplinas: " + this.listaDisciplinaDoProfessor + "\n";
 	}
 }

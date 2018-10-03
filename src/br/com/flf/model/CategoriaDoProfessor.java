@@ -43,6 +43,6 @@ public enum CategoriaDoProfessor {
 	 * @return uma string representando a categoria do professor
 	 */	
 	public String toString() {
-		return "Categoria: " + this.categoriaDoProfessor + "\n";
+		return "Categoria: " + this.categoriaDoProfessor;
 	}
 }

@@ -149,7 +149,7 @@ public class Curso {
 	 * @return uma string representando o curso
 	 */
 	public String toString() {
-		return "Curso: " + this.nomeDoCurso + "\nCodigo: " + this.codigoDoCurso + "Turno: " + this.turnoDoCurso +
+		return "\nCurso: " + this.nomeDoCurso + "\nCodigo: " + this.codigoDoCurso + "\nTurno: " + this.turnoDoCurso +
 				"\nCoordenador: "+ this.professorCoordenadorDoCurso;
 	}
 }

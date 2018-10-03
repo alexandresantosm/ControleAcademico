@@ -12,6 +12,7 @@ import br.com.flf.model.Aluno;
 import br.com.flf.model.Curso;
 import br.com.flf.model.Disciplina;
 import br.com.flf.model.Professor;
+import br.com.flf.model.SituacaoDoAluno;
 import br.com.flf.service.AlunoService;
 import br.com.flf.service.CursoService;
 import br.com.flf.service.DisciplinaService;
@@ -19,7 +20,7 @@ import br.com.flf.service.ProfessorService;
 
 public class Interface {
 	Leitor teclado;
-	Calendar cal ;
+	Calendar cal;
 	AlunoService alunoService;
 	CursoService cursoService;
 	DisciplinaService disciplinaService;
@@ -70,11 +71,13 @@ public class Interface {
 	private void interpreter(int opcao) {
 		switch (opcao) {
 		case 0: {
+			// Encerra o programa.
 			System.out.println("Encerrando...");
 			System.exit(0);
 			break;
 		}
 		case 1: {
+			// Verifica se a lista de cursos e de disciplinas estão vazias.
 			if(this.cursoService.getListaDeCurso().isEmpty()) {
 				System.out.println("Cadastre cursos para poder cadastrar um aluno!");
 				return;
@@ -88,14 +91,29 @@ public class Interface {
 			while (true) {
 				System.out.print("Digite o nome de um curso ja cadastrado: ");
 				cursoService.listaCursos();
+				// Adiciona o curso do aluno
 				String nomeCurso = this.teclado.leiaString();
 				curso = this.cursoService.getCurso(nomeCurso);
-				System.out.print("Digite o nome de uma disciplina ja cadastrada: ");
-				disciplinaService.listaDisciplinas();
-				String nomeDisciplina = this.teclado.leiaString();
-				disciplina = this.disciplinaService.getDisciplina(nomeDisciplina);
 				
-				if(curso == null && disciplina == null) {
+				// Adiciona as disciplinas do aluno
+				String escolherDisciplinas = "s";
+				
+				do {	
+					System.out.print("Digite o nome de uma disciplina ja cadastrada: \nOu tecle \"n\" para escolher depois as disciplinas:");
+					disciplinaService.listaDisciplinas();
+					String nomeDisciplina = this.teclado.leiaString();
+					if((nomeDisciplina.equals("s")) || (nomeDisciplina.equals("S")) && (nomeDisciplina.length() >= 3)) {
+						disciplina = this.disciplinaService.getDisciplina(nomeDisciplina);
+						aluno.setListaDisciplinaDoAluno(disciplina);
+						aluno.setSituacaoDoAluno(SituacaoDoAluno.MATRICULADO);
+						escolherDisciplinas = "s";
+					} else if ((nomeDisciplina.equals("n")) || (nomeDisciplina.equals("N"))) {
+						aluno.setSituacaoDoAluno(SituacaoDoAluno.PENDENTE);
+						escolherDisciplinas = "n";
+					} 
+				} while (escolherDisciplinas == "s" ||  escolherDisciplinas == "S");		
+				
+				if(curso == null) {
 					continue;
 				}
 				
@@ -109,21 +127,23 @@ public class Interface {
 				String eMailAluno = this.teclado.leiaString();
 				System.out.println("Digite o telefone do aluno: ");
 				String telefoneAluno = this.teclado.leiaString();
-				System.out.println("Digite a matricula do aluno: ");
-				long cpf = Long.parseLong(cpfAluno.substring(cpfAluno.length()-4) + cal.get(Calendar.YEAR));
-				String matriculaAluno = curso.getCodigoDoCurso() +""+ cpf;
+				
+				// Configurando a matricula do aluno com o codigo do curso + os 4 ultimos digitos do cpf e o ano corrente.
+				long unindoCpfAno = Long.parseLong(cpfAluno.substring(cpfAluno.length()-4) + cal.get(Calendar.YEAR));
+				String matriculaAluno = curso.getCodigoDoCurso() +""+ unindoCpfAno;
 				System.out.println("Matricula: " + matriculaAluno);
-				//long matriculaAluno = this.teclado.leiaLong();
-				aluno.setListaDisciplinaDoAluno(disciplina);
-				alunoService.addAluno(nomeAluno, cpfAluno, enderecoAluno, eMailAluno, telefoneAluno, matriculaAluno, null, curso, aluno.getListaDisciplinaDoAluno());
-				System.out.println("Aluno vinculado com sucesso!");
+				
+				
+				alunoService.addAluno(nomeAluno, cpfAluno, enderecoAluno, eMailAluno, telefoneAluno, matriculaAluno, aluno.getSituacaoDoAluno(), curso, aluno.getListaDisciplinaDoAluno());
+				System.out.println("\nAluno vinculado com sucesso!\n");
 				break;
 			}
 			break;
 		}
 		case 2: {
+			// Lista todos os alunos
 			alunoService.listaAlunos();
-			System.out.println(alunoService.getListaDisciplinaDoAluno());
+			System.out.println("");
 			break;
 		}
 		case 3: {

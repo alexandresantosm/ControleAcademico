@@ -42,6 +42,6 @@ public enum Turno {
 	 * @return uma string representando turno
 	 */
 	public String toString() {
-		return this.turno + "\n";
+		return this.turno;
 	}
 }

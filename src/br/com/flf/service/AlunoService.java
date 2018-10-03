@@ -112,7 +112,6 @@ public class AlunoService {
 	}
 	
 	public void povoaAlunos() {
-		
 		addAluno("Alex", "28764341216", "Rua A, 1", "alex@email.com", "45933011", "111112162018", SituacaoDoAluno.MATRICULADO);
 		addAluno("Pedro", "84256248028", "Rua dia, 48", "pedro@email.com", "35418035", "111180282018", SituacaoDoAluno.MATRICULADO);
 		addAluno("Chico", "41598374553", "Rua Por do Sol, 99", "chico@email.com", "53638782", "111245532018", SituacaoDoAluno.MATRICULADO);
