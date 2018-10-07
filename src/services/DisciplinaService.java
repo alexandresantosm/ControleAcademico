@@ -74,6 +74,63 @@ public class DisciplinaService {
 		}
 	}
 	
+	public void updateDisciplina() {
+		int codigo = 0;
+		System.out.println("Digite o codigo para pesquisar uma disciplina: ");
+		codigo = ler.nextInt();
+		
+		String str = Integer.toString(codigo);
+		Disciplina disciplina = disciplinaDao.select(str);
+		if(disciplina != null) {
+			System.out.print("Nome: ");
+			String nome = ler.nextLine();
+			
+			professorDisciplina();
+			
+			chamada();
+			
+			int numSala = 0;
+			do {
+				System.out.print("Numero da sala: ");
+				numSala = ler.nextInt();
+			} while(numSala < 100 && numSala > 399);
+			
+			int cargaHoraria = 0;
+			do {
+				System.out.print("Carga Horaria: ");
+				cargaHoraria = ler.nextInt();
+			} while(cargaHoraria !=2 || cargaHoraria !=4);
+			
+			System.out.print("Horario: ");
+			String horario = ler.nextLine();
+			
+			custo(cargaHoraria);
+			
+			d.setNomeDisciplina(nome);
+			d.setCodigoDisciplina(codigo);
+			d.setSala(numSala);
+			d.setCargaHoraria(cargaHoraria);
+			d.setHorario(horario);		
+			
+			disciplinaDao.update(d);
+		}
+	}
+	
+	public void deleteDisciplina() {
+		Disciplina disciplina = new Disciplina();
+		do {
+			int codigo = 0;
+			System.out.println("Digite o codigo para pesquisar uma disciplina: ");
+			codigo = ler.nextInt();
+			
+			String str = Integer.toString(codigo);
+			disciplina = disciplinaDao.select(str);
+			if (disciplina != null) {
+				disciplinaDao.delete(disciplina);
+			}
+		} while (disciplina == null);
+	}
+	
 	public void professorDisciplina() {
 		List<Professor> listaProfessor = professorDao.select();
 		System.out.println("Escolha o professor:");

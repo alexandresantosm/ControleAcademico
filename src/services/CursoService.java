@@ -144,7 +144,7 @@ public class CursoService {
 
 			int codig = 0;
 			String cod = "";
-			System.out.println("Código (apenas 4 digitos): ");
+			System.out.print("Código (apenas 4 digitos): ");
 			do {
 				cod += ler.nextLine();
 				if (validador(ler.nextLine()))
