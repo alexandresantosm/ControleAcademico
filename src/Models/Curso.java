@@ -3,11 +3,13 @@ package Models;
 import java.util.ArrayList;
 import java.util.List;
 
+import enumsModels.Turno;
+
 public class Curso {
 
 	private String nome;
 	private Integer codigo;
-	private String turno;
+	private Turno turno;
 	private Professor professor;
 	private List<Disciplina> disciplinasCurso = new ArrayList<>();
 
@@ -20,7 +22,7 @@ public class Curso {
 		return codigo;
 	}
 
-	public String getTurno() {
+	public Turno getTurno() {
 		return turno;
 	}
 
@@ -40,7 +42,7 @@ public class Curso {
 		this.codigo = codigo;
 	}
 
-	public void setTurno(String turno) {
+	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
 

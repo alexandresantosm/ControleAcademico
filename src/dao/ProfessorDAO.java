@@ -4,7 +4,7 @@ import java.util.List;
 
 import Models.Professor;
 
-public class ProfessorDAO implements DAO<Professor>{
+public class ProfessorDAO implements DAO<Professor> {
 
 	@Override
 	public void insert(Professor professor) {
@@ -17,20 +17,20 @@ public class ProfessorDAO implements DAO<Professor>{
 
 	@Override
 	public void update(Professor professor) {
-		getDados().forEach(da -> {
-			if(da.equals(professor))
-				da = professor;
-		});		
+		getDados().forEach(prof -> {
+			if (prof.equals(professor))
+				prof = professor;
+		});
 	}
 
 	@Override
 	public void delete(Professor professor) {
 		int contador = 0;
-		for(Professor p : getDados()) {
-			if(p.equals(professor))
+		for (Professor p : getDados()) {
+			if (p.equals(professor))
 				getDados().remove(contador);
-			contador++;			
-		}	
+			contador++;
+		}
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class ProfessorDAO implements DAO<Professor>{
 	@Override
 	public Professor select(String cpf) {
 		Professor professorRetornado = null;
-		for(Professor p : getDados()){
-			if(p.getCpf().equals(cpf)) {
+		for (Professor p : getDados()) {
+			if (p.getCpf().equals(cpf)) {
 				professorRetornado = p;
 				break;
 			}

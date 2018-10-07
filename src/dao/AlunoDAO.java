@@ -3,43 +3,53 @@ package dao;
 import java.util.List;
 
 import Models.Aluno;
+import Models.Professor;
 
 public class AlunoDAO implements DAO<Aluno> {
 
 	@Override
-	public void insert(Aluno d) {
-		// TODO Auto-generated method stub
-		
+	public void insert(Aluno aluno) {
+		getDados().add(aluno);
+
 	}
 
-
-
-	@Override
-	public void update(Aluno d) {
-		// TODO Auto-generated method stub
-		
+	private List<Aluno> getDados() {
+		return getDados();
 	}
 
 	@Override
-	public void delete(Aluno d) {
-		// TODO Auto-generated method stub
-		
+	public void update(Aluno aluno) {
+		getDados().forEach(al -> {
+			if (al.equals(aluno))
+				al = aluno;
+		});
 	}
 
-
+	@Override
+	public void delete(Aluno aluno) {
+		int contador = 0;
+		for (Aluno a : getDados()) {
+			if (a.equals(aluno))
+				getDados().remove(contador);
+			contador++;
+		}
+	}
 
 	@Override
 	public List<Aluno> select() {
-		// TODO Auto-generated method stub
-		return null;
+		return getDados();
 	}
 
-
-
 	@Override
-	public Aluno select(String codigo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Aluno select(String matricula) {
+		Aluno alunoRetornado = null;
+		for (Aluno a : getDados()) {
+			if (a.getMatricula().equals(matricula)) {
+				alunoRetornado = a;
+				break;
+			}
+		}
+		return alunoRetornado;
 	}
 
 }

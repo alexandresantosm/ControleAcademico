@@ -23,14 +23,25 @@ public class ProfessorService {
 		// Adiciona professor
 		System.out.print("Nome: ");
 		String nome = ler.nextLine();
-		System.out.print("CPF: ");
-		String cpf = ler.nextLine();
+		
+		String cpf = "";
+		do {
+			System.out.print("CPF(apenas 11 digitos): ");
+			cpf = ler.nextLine();
+		} while(cpf.length() != 11);
+		
 		System.out.print("Endereco: ");
 		String endereco = ler.nextLine();
 		System.out.print("e-mail: ");
 		String email = ler.nextLine();
-		System.out.print("Telefone: ");
-		long telefone = ler.nextLong();
+		
+		String str = "";
+		long telefone = 0;
+		do {
+			System.out.print("Telefone: ");
+			telefone = ler.nextLong();
+			str = Long.toString(telefone);
+		} while (str.length() < 8 || str.length() > 9);
 		
 		CategoriaProfessor categoria = null;
 		
@@ -186,14 +197,15 @@ public class ProfessorService {
 	}
 
 	public void deleteProfessor() {
+		Professor professor = new Professor();
 		do {
 			String cpf = "";
-			System.out.println("Digite o CPF deletar um professor: ");
+			System.out.println("Digite o CPF para deletar um professor: ");
 			cpf = ler.nextLine();
-			Professor professor = professorDao.select(cpf);
+			professor = professorDao.select(cpf);
 			if(professor != null) {
 				professorDao.delete(professor);
 			}
-		} while(false);
+		} while(professor == null);
 	}
 }
